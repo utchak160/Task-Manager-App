@@ -3,11 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="7cbe45dd-5831-4fc9-952c-d80c20cf891d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/task.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/task.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/task.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/task.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +62,12 @@
       <workItem from="1588778208508" duration="6532000" />
       <workItem from="1588846647674" duration="2450000" />
       <workItem from="1588926490063" duration="19496000" />
-      <workItem from="1589002547195" duration="1847000" />
+      <workItem from="1589002547195" duration="3067000" />
+      <workItem from="1589055689239" duration="788000" />
+      <workItem from="1589095369239" duration="293000" />
+      <workItem from="1589095688273" duration="87000" />
+      <workItem from="1589096883655" duration="45000" />
+      <workItem from="1589103601395" duration="3125000" />
     </task>
     <servers />
   </component>
