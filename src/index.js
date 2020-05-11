@@ -60,3 +60,10 @@ app.listen(port, () => {
 // }
 //
 // console.log(JSON.stringify(pet))
+
+
+// const main = async () => {
+//     const task = await findById()
+//     await task.populate('owner').execPopulate()
+//     console.log()
+// }

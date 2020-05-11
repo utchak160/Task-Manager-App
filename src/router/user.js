@@ -26,14 +26,14 @@ router.post('/users/login', async (req, res) => {
         const token = await user.generateAuthToken()
         res.send({ user, token } )
     } catch (e) {
-        res.status(400).send()
+        res.status(400).send('Please enter the Valid Credentials')
     }
 })
 
 router.get('/users/profile', auth ,  async (req, res) => {
 
     try {
-        const user = await User.find({})
+        const user = await User.findOne({})
         if (!user) {
             res.status(404).send('User not found')
         }
