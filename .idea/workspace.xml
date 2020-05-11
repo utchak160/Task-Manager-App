@@ -3,10 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="7cbe45dd-5831-4fc9-952c-d80c20cf891d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/task.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/task.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/task.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/task.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/router/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/user.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -70,7 +70,8 @@
       <workItem from="1589095688273" duration="87000" />
       <workItem from="1589096883655" duration="45000" />
       <workItem from="1589103601395" duration="3194000" />
-      <workItem from="1589179445913" duration="7093000" />
+      <workItem from="1589179445913" duration="7777000" />
+      <workItem from="1589207397589" duration="8631000" />
     </task>
     <servers />
   </component>
@@ -78,6 +79,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="837" y="202" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1589213858039">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="837" y="202" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1589213858039" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1588692573739">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
