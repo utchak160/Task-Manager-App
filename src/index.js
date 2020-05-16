@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 require('./db/mongoose')
 const User = require('./models/user')
 const Task = require('./models/task')
@@ -6,6 +7,28 @@ const UserRouter = require('./router/user')
 const TaskRouter = require('./router/task')
 
 const app = express()
+app.use(cors())
+const allowedOrigins = [
+    "http://localhost:4200",
+];
+
+app.use(cors({
+    origin: function (origin, callback) {
+        if (origin && allowedOrigins.indexOf(origin) !== -1) {
+            callback(null, true);
+        } else {
+            callback(new Error("Not allowed by CORS"));
+        }
+    },
+    methods: [
+        "GET",
+        "HEAD",
+        "PUT",
+        "PATCH",
+        "POST",
+        "DELETE"
+    ]
+}));
 const port = process.env.PORT || 3000
 
 

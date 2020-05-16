@@ -2,6 +2,7 @@ const express = require('express')
 const User = require('../models/user')
 const router = new express.Router()
 const multer = require('multer')
+const { sendWelcomeEmail, sendCancelEmail } = require('../emails/account')
 const auth = require('./../middleware/auth')
 const sharp = require('sharp')
 
@@ -9,8 +10,9 @@ router.post('/users', async (req, res) => {
     const user = new User(req.body)
     try {
         await user.save()
+        sendWelcomeEmail(user.email, user.name)
         const token = await user.generateAuthToken()
-        res.status(201).send({ user, token })
+        res.status(201).send({ user, token, message: 'Register Successfully' })
     } catch (e) {
         res.status(400).send(e.message)
     }
@@ -26,7 +28,7 @@ router.post('/users/login', async (req, res) => {
     try {
         const user = await User.findByCredentials(req.body.email, req.body.password)
         const token = await user.generateAuthToken()
-        res.send({ user, token } )
+        res.send({ user, token, message: 'Login Successful'})
     } catch (e) {
         res.status(400).send('Please enter the Valid Credentials')
     }
@@ -39,7 +41,7 @@ router.get('/users/profile', auth ,  async (req, res) => {
         if (!user) {
             res.status(404).send('User not found')
         }
-        res.send(user)
+        res.send({user})
     } catch (e) {
         res.status(500).send(e.message)
     }
@@ -67,7 +69,7 @@ router.post('/users/logout', auth,  async (req, res) => {
             return token.token !== req.token
         })
         await req.user.save()
-        res.send('Successfully Logged Out')
+        res.send({Message: 'Successfully Logged Out'})
     } catch (e) {
         res.status(500).send()
     }
@@ -129,10 +131,11 @@ router.delete('/users/profile', auth, async (req, res) => {
         // if (!user) {
         //     return res.status(404).send({error: 'User Not Found'})
         // }
+        await sendCancelEmail(req.user.email, req.user.name)
         await req.user.remove()
-        res.send(user)
+        res.send()
     } catch (e) {
-        res.status(500).send();
+        res.status(500).send(e.message);
     }
 })
 
