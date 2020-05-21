@@ -41,7 +41,7 @@ router.get('/users/profile', auth ,  async (req, res) => {
         if (!user) {
             res.status(404).send('User not found')
         }
-        res.send({user})
+        res.send(user)
     } catch (e) {
         res.status(500).send(e.message)
     }
@@ -133,7 +133,7 @@ router.delete('/users/profile', auth, async (req, res) => {
         // }
         await sendCancelEmail(req.user.email, req.user.name)
         await req.user.remove()
-        res.send()
+        res.send({message: 'Profile removed Successfully'})
     } catch (e) {
         res.status(500).send(e.message);
     }
