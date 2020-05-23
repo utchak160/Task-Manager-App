@@ -140,9 +140,9 @@ router.delete('/users/profile', auth, async (req, res) => {
 })
 
 const upload = multer({
-    // dest: 'images',
+    dest: 'images',
     limits: {
-        fileSize: 1000000
+        fileSize: 100000000
     },
     fileFilter(req, file, cb) {
         if (!file.originalname.match(/\.(jpg|jpeg|png)$/)) {
@@ -162,7 +162,7 @@ router.post('/users/profile/avatar', auth, upload.single('avatar'), async (req, 
     const buffer = await sharp(req.file.buffer).resize({ width: 350, height: 450}).png().toBuffer()
     req.user.avatar = buffer
     await req.user.save()
-    res.send('File uploaded Successfully')
+    res.send({message: 'File uploaded Successfully'})
 }, (error, req, res, next) => {
     res.status(400).send({ error: error.message})
 })
