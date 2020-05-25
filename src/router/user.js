@@ -139,33 +139,33 @@ router.delete('/users/profile', auth, async (req, res) => {
     }
 })
 
-// const upload = multer({
-//     dest: 'images',
-//     limits: {
-//         fileSize: 100000000
-//     },
-//     fileFilter(req, file, cb) {
-//         if (!file.originalname.match(/\.(jpg|jpeg|png)$/)) {
-//             return cb(new Error('Please upload an image'))
-//         }
-//         cb(undefined, true)
-//
-//         // cb(new Error('File must be PDF'))
-//         // cb(undefined, true)
-//         // cb(undefined, false)
-//     }
-// })
+const upload = multer({
+    // dest: 'images',
+    limits: {
+        fileSize: 100000000
+    },
+    fileFilter(req, file, cb) {
+        if (!file.originalname.match(/\.(jpg|jpeg|png)$/)) {
+            return cb(new Error('Please upload an image'))
+        }
+        cb(undefined, true)
+
+        // cb(new Error('File must be PDF'))
+        // cb(undefined, true)
+        // cb(undefined, false)
+    }
+})
 
 
 
-// router.post('/users/profile/avatar', auth, upload.single('avatar'), async (req, res) => {
-//     const buffer = await sharp(req.file.buffer).resize({ width: 350, height: 450}).png().toBuffer()
-//     req.user.avatar = buffer
-//     await req.user.save()
-//     res.send({message: 'File uploaded Successfully'})
-// }, (error, req, res, next) => {
-//     res.status(400).send({ error: error.message})
-// })
+router.post('/users/profile/avatar', auth, upload.single('avatar'), async (req, res) => {
+    const buffer = await sharp(req.file.buffer).resize({ width: 350, height: 450}).png().toBuffer()
+    req.user.avatar = buffer
+    await req.user.save()
+    res.send({message: 'File uploaded Successfully'})
+}, (error, req, res, next) => {
+    res.status(400).send({ error: error.message})
+})
 
 router.delete('/users/profile/avatar', auth, async (req, res) => {
     req.user.avatar = undefined
@@ -188,37 +188,6 @@ router.get('/users/:id/avatar', async (req, res) => {
     }
 })
 
-const PATH = './images';
 
-
-let storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, PATH);
-    },
-    filename: (req, file, cb) => {
-        cb(null, file.fieldname + '-' + Date.now())
-    }
-});
-
-let upload = multer({
-    storage: storage
-});
-
-router.post('/users/profile/avatar', auth,  upload.single('image'), function (req, res) {
-    const user = this
-    console.log(user);
-    if (!req.file) {
-        console.log("No file is available!");
-        return res.send({
-            success: false
-        });
-
-    } else {
-        console.log('File is available!');
-        return res.send({
-            success: true
-        })
-    }
-});
 
 module.exports = router
